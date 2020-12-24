@@ -6,11 +6,12 @@ public class CameraHandle : MonoBehaviour
 {
     public float sensitiveity = 100;
     public Transform body;
+    public float distHold;
     private float xRot = 0;
     //private bool isHold;
     public GameObject item = null;
     private Camera cam;
-
+    public float rotateSpeed= .05f;
     public Shader glow;
     public Shader normalShader;
     public GameObject tempItem;
@@ -46,18 +47,21 @@ public class CameraHandle : MonoBehaviour
 
                 Debug.DrawRay(CameraCenter, cam.transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
                 tempItem = hit.collider.gameObject;
-                normalShader = tempItem.GetComponent<Renderer>().material.shader;
+                //ormalShader = tempItem.GetComponent<Renderer>().material.shader;
                 tempItem.GetComponent<Renderer>().material.shader = glow;
                 
-                if (Input.GetButton("Fire1")) { 
+                if (Input.GetButtonUp("Fire1")) { 
                     reload = Time.time + 1;
                     //with(item)
                     //{
                         item = tempItem;
+                        item.GetComponent<Renderer>().material.shader = glow;
                         item.transform.SetParent(this.gameObject.transform);
                         //item.GetComponent<Rigidbody>().isKinematic = false;
                         item.GetComponent<Rigidbody>().useGravity = false;
                         item.GetComponent<Collider>().enabled = false;
+                    item.transform.rotation = transform.rotation;
+                    item.transform.position = transform.position+ cam.transform.TransformDirection(Vector3.forward) *distHold;
                     //item.GetComponent<Renderer>().material.shader = glow;
                     //}
 
@@ -79,7 +83,8 @@ public class CameraHandle : MonoBehaviour
         }
         else
         {
-            if (Input.GetButton("Fire1"))
+            
+            if (Input.GetButtonUp("Fire3"))
             {
                 //using (item)
                 //{
@@ -92,6 +97,11 @@ public class CameraHandle : MonoBehaviour
                 //}
 
                 item = null;
+            }
+
+            if (Input.GetButtonUp("Fire2"))
+            {
+                item.transform.Rotate(0, rotateSpeed, 0);
             }
         }
     }
