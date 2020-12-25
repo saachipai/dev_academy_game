@@ -11,11 +11,12 @@ public class CameraHandle : MonoBehaviour
     //private bool isHold;
     public GameObject item = null;
     private Camera cam;
-    public float rotateSpeed= .05f;
+    public float rotateSpeed= 1f;
     public Shader glow;
     public Shader normalShader;
     public GameObject tempItem;
-    private float reload=0;
+    
+    private bool isRotate;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,8 +40,8 @@ public class CameraHandle : MonoBehaviour
         RaycastHit hit;
         if (item == null)
         {
+            isRotate = false;
 
-            
             Vector3 CameraCenter = cam.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, cam.nearClipPlane));
             if (Physics.Raycast(CameraCenter, cam.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
             {
@@ -51,7 +52,7 @@ public class CameraHandle : MonoBehaviour
                 tempItem.GetComponent<Renderer>().material.shader = glow;
                 
                 if (Input.GetButtonUp("Fire1")) { 
-                    reload = Time.time + 1;
+                    
                     //with(item)
                     //{
                         item = tempItem;
@@ -83,7 +84,7 @@ public class CameraHandle : MonoBehaviour
         }
         else
         {
-            item.transform.Rotate(0, rotateSpeed, 0);
+            
             if (Input.GetButtonUp("Fire1"))
             {
                 //using (item)
@@ -99,7 +100,11 @@ public class CameraHandle : MonoBehaviour
                 item = null;
             }
 
-            if (Input.GetButtonUp("Fire3"))
+            if (Input.GetButtonUp("Fire2"))
+            {
+                isRotate = !isRotate;
+            }
+            if (isRotate)
             {
                 item.transform.Rotate(0, rotateSpeed, 0);
             }
