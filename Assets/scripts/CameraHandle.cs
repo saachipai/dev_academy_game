@@ -75,7 +75,7 @@ public class CameraHandle : MonoBehaviour
                
                 if (tempItem != null)
                 {
-                    Debug.Log("switch shades back");
+                    //Debug.Log("switch shades back");
                     tempItem.GetComponent<Renderer>().material.shader = normalShader;
                     tempItem = null;
                 }
@@ -84,7 +84,7 @@ public class CameraHandle : MonoBehaviour
         else
         {
             
-            if (Input.GetButtonUp("Fire3"))
+            if (Input.GetButtonUp("Fire1"))
             {
                 //using (item)
                 //{
@@ -99,7 +99,7 @@ public class CameraHandle : MonoBehaviour
                 item = null;
             }
 
-            if (Input.GetButtonUp("Fire2"))
+            if (Input.GetButtonUp("Fire3"))
             {
                 item.transform.Rotate(0, rotateSpeed, 0);
             }
