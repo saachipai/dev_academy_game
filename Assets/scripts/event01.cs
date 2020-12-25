@@ -4,27 +4,28 @@ using UnityEngine;
 
 public class event01 : MonoBehaviour
 {
-    public bool trigger;
-    public Material mat;
-    public Material mat2;
+    public triggerSelect trigger;
+    //public Material mat;
+    //public Material mat2;
     private Renderer rend;
+    public float exampleVal=1;
     // Start is called before the first frame update
     void Start()
     {
         //rend = 
     }
-    /*
+    
     // Update is called once per frame
     void Update()
     {
-        if (trigger == true)
+        if (trigger.isTriggered == true)
         {
-            GetComponent<Renderer>().Material = mat;
+            transform.position = new Vector3(0, Mathf.Sin(Time.time)* exampleVal, 0)  + transform.position;
         }
         else
         {
-            GetComponent<Renderer>().Material = mat1;
+            transform.position =new Vector3(0, 0, 0)+ transform.position;
         }
     }
-    */
+    
 }
