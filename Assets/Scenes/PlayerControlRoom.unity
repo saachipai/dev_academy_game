@@ -739,9 +739,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16c688874b0a05445a4f26d47533bcbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigger: 0
-  mat: {fileID: 0}
-  mat2: {fileID: 0}
+  trigger: {fileID: 0}
+  exampleVal: 1
 --- !u!1 &2004843961
 GameObject:
   m_ObjectHideFlags: 0
@@ -879,9 +878,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16c688874b0a05445a4f26d47533bcbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigger: 0
-  mat: {fileID: 0}
-  mat2: {fileID: 0}
+  trigger: {fileID: 2004843962}
+  exampleVal: 0.01
 --- !u!1001 &148575260537469845
 PrefabInstance:
   m_ObjectHideFlags: 0
