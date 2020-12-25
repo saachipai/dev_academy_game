@@ -83,7 +83,7 @@ public class CameraHandle : MonoBehaviour
         }
         else
         {
-            
+            item.transform.Rotate(0, rotateSpeed, 0);
             if (Input.GetButtonUp("Fire1"))
             {
                 //using (item)
