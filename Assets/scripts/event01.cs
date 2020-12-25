@@ -7,7 +7,7 @@ public class event01 : MonoBehaviour
     public triggerSelect trigger;
     //public Material mat;
     //public Material mat2;
-    private Renderer rend;
+    //private Renderer rend;
     public float exampleVal=1;
     // Start is called before the first frame update
     void Start()
