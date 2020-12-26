@@ -611,7 +611,7 @@ Transform:
   m_GameObject: {fileID: 616747326}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -4.92, y: 1.719, z: -11.33}
-  m_LocalScale: {x: -0.16283, y: 0.16283, z: 0.16283}
+  m_LocalScale: {x: 0.16283, y: 0.16283, z: 0.16283}
   m_Children:
   - {fileID: 957562900}
   m_Father: {fileID: 0}
@@ -1014,6 +1014,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 919247462}
+  mirror2: {fileID: 0}
+  target: {fileID: 0}
+  onScreen: 0
 --- !u!1 &957562899
 GameObject:
   m_ObjectHideFlags: 0
@@ -1054,12 +1057,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 957562899}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a70b5b95fe3ce6741adf9444bdab1ff4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 957562903}
+  mirror2: {fileID: 984371210}
+  target: {fileID: 1235897112}
+  onScreen: 0
 --- !u!81 &957562902
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1202,7 +1208,7 @@ Transform:
   m_GameObject: {fileID: 984371206}
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
   m_LocalPosition: {x: -4.92, y: 1.26, z: -13.26}
-  m_LocalScale: {x: -0.16283, y: 0.16283, z: 0.16283}
+  m_LocalScale: {x: 0.16283, y: 0.16283, z: 0.16283}
   m_Children:
   - {fileID: 1819118460}
   m_Father: {fileID: 0}
@@ -1304,6 +1310,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1235897112 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 148575260547054046, guid: e0a65f292ddc82b4291635ba5db5f76c, type: 3}
+  m_PrefabInstance: {fileID: 148575260537469845}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1422721558
 GameObject:
   m_ObjectHideFlags: 0
@@ -1532,12 +1543,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1819118459}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a70b5b95fe3ce6741adf9444bdab1ff4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1819118463}
+  mirror2: {fileID: 616747330}
+  target: {fileID: 1235897112}
+  onScreen: 0
 --- !u!81 &1819118462
 AudioListener:
   m_ObjectHideFlags: 0
@@ -2183,7 +2197,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 148575261036378610, guid: e0a65f292ddc82b4291635ba5db5f76c, type: 3}
       propertyPath: m_Name
-      value: GameObject
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 148575261036378623, guid: e0a65f292ddc82b4291635ba5db5f76c, type: 3}
       propertyPath: m_LocalPosition.x
