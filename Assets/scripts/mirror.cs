@@ -34,11 +34,11 @@ public class mirror : MonoBehaviour
                 doppleganger = Instantiate(target, mirror2.localPosition + distFromCamera, transform.rotation);
                 oldOnScreen = onScreen;
             }
-            Debug.Log(mirror2.rotation.eulerAngles);
+            //Debug.Log(mirror2.rotation.eulerAngles);
             Quaternion yzSwitch = Quaternion.Euler(0, mirror2.rotation.eulerAngles.y, 0);
             Debug.Log(yzSwitch.eulerAngles);
             distFromCamera.z = -distFromCamera.z;
-            doppleganger.transform.position = Vector3.Scale(mirror2.transform.position + transformRotation(yzSwitch, distFromCamera), new Vector3(1, 0, 1)) + new Vector3(1, target.transform.position.y, 1);
+            doppleganger.transform.position = Vector3.Scale(mirror2.transform.position + transformRotation(yzSwitch, distFromCamera), new Vector3(1, 1, 1));// + new Vector3(1, target.transform.position.y, 1);
             //distFromCamera.x = -distFromCamera.x;
             //doppleganger.transform.position = mirror2.transform.localPosition + (distFromCamera);// + mirror2.transform.TransformDirection(Vector3.up) ;
         }
