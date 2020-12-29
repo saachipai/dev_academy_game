@@ -2,6 +2,9 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
+Library/ArtifactDB
+Library/SourceAssetDB
+Library/shadercompiler-UnityShaderCompiler.exe0.log
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
