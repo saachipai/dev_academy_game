@@ -804,7 +804,8 @@ PrefabInstance:
       propertyPath: distHold
       value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5621099455559916399, guid: e0a65f292ddc82b4291635ba5db5f76c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e0a65f292ddc82b4291635ba5db5f76c, type: 3}
 --- !u!1 &285742117
 GameObject:

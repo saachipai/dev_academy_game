@@ -11,18 +11,18 @@ public class CameraHandle : MonoBehaviour
     //private bool isHold;
     public GameObject item = null;
     private Camera cam;
-    public float rotateSpeed= 1f;
+    public float rotateSpeed = 1f;
     public Shader glow;
     public Shader normalShader;
     public GameObject tempItem;
-    
+
     private bool isRotate;
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         cam = GetComponent<Camera>();
- 
+
     }
 
     // Update is called once per frame
@@ -50,19 +50,20 @@ public class CameraHandle : MonoBehaviour
                 tempItem = hit.collider.gameObject;
                 //ormalShader = tempItem.GetComponent<Renderer>().material.shader;
                 tempItem.GetComponent<Renderer>().material.shader = glow;
-                
-                if (Input.GetButtonUp("Fire1")) { 
-                    
+
+                if (Input.GetButtonUp("Fire1"))
+                {
+
                     //with(item)
                     //{
-                        item = tempItem;
-                        item.GetComponent<Renderer>().material.shader = glow;
-                        item.transform.SetParent(this.gameObject.transform);
-                        //item.GetComponent<Rigidbody>().isKinematic = false;
-                        item.GetComponent<Rigidbody>().useGravity = false;
-                        item.GetComponent<Collider>().enabled = false;
+                    item = tempItem;
+                    item.GetComponent<Renderer>().material.shader = glow;
+                    item.transform.SetParent(this.gameObject.transform);
+                    //item.GetComponent<Rigidbody>().isKinematic = false;
+                    item.GetComponent<Rigidbody>().useGravity = false;
+                    item.GetComponent<Collider>().enabled = false;
                     item.transform.rotation = transform.rotation;
-                    item.transform.position = transform.position+ cam.transform.TransformDirection(Vector3.forward) *distHold;
+                    item.transform.position = transform.position + cam.transform.TransformDirection(Vector3.forward) * distHold;
                     //item.GetComponent<Renderer>().material.shader = glow;
                     //}
 
@@ -73,7 +74,7 @@ public class CameraHandle : MonoBehaviour
             else
             {
                 Debug.DrawRay(CameraCenter, cam.transform.TransformDirection(Vector3.forward) * hit.distance, Color.black);
-               
+
                 if (tempItem != null)
                 {
                     //Debug.Log("switch shades back");
@@ -84,7 +85,7 @@ public class CameraHandle : MonoBehaviour
         }
         else
         {
-            
+
             if (Input.GetButtonUp("Fire1"))
             {
                 //using (item)
@@ -94,7 +95,7 @@ public class CameraHandle : MonoBehaviour
                 item.GetComponent<Rigidbody>().useGravity = true;
                 //item.GetComponent<Renderer>().material.shader = normalShader;
                 item.transform.parent = null;
-               
+
                 //}
 
                 item = null;
@@ -111,5 +112,3 @@ public class CameraHandle : MonoBehaviour
         }
     }
 }
-
-

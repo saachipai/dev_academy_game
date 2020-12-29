@@ -21,7 +21,7 @@ public class CharMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
         {
@@ -29,20 +29,19 @@ public class CharMove : MonoBehaviour
         }
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
-        
+
         playerVelocity.y += gravityValue * Time.deltaTime;
         //controller.Move(playerVelocity * Time.deltaTime);
-       
+
         Vector3 move = x * Vector3.right + z * Vector3.forward + playerVelocity;
         move = transform.TransformDirection(move);
         //Debug.Log(move);
         controller.Move(move * Time.deltaTime * playerSpeed);
 
-        
 
-     
 
-        
+
+
+
     }
 }
-

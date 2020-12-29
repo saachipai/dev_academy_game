@@ -7,6 +7,7 @@ public class mirror : MonoBehaviour
     public Camera cam;
     public Transform mirror2;
     public GameObject target;
+    public bool switchStartingDirection = false;
     public bool onScreen = false;
     private bool oldOnScreen = false;
     private GameObject doppleganger;
@@ -32,13 +33,50 @@ public class mirror : MonoBehaviour
             if (onScreen != oldOnScreen)
             {
                 doppleganger = Instantiate(target, mirror2.localPosition + distFromCamera, transform.rotation);
+                Destroy(doppleganger.GetComponent<CharMove>());
+                Destroy(doppleganger.GetComponent<CharacterController>());
+                doppleganger.transform.GetChild(1).GetComponent<Camera>().enabled = false;
+                doppleganger.transform.GetChild(1).GetComponent<CameraHandle>().enabled = false;
                 oldOnScreen = onScreen;
             }
             //Debug.Log(mirror2.rotation.eulerAngles);
             Quaternion yzSwitch = Quaternion.Euler(0, mirror2.rotation.eulerAngles.y, 0);
-            Debug.Log(yzSwitch.eulerAngles);
-            distFromCamera.z = -distFromCamera.z;
+            //.Debug.Log(yzSwitch.eulerAngles);
+            if (!switchStartingDirection)
+            {
+                distFromCamera.z = -distFromCamera.z;
+
+            }
+            else
+            {
+
+                distFromCamera.x = -distFromCamera.x;
+                //distFromCamera.y = -distFromCamera.y;
+              
+            }
+
             doppleganger.transform.position = Vector3.Scale(mirror2.transform.position + transformRotation(yzSwitch, distFromCamera), new Vector3(1, 1, 1));// + new Vector3(1, target.transform.position.y, 1);
+            doppleganger.transform.LookAt(mirror2);
+            Debug.Log("traget" + target.transform.GetChild(1).transform.childCount);
+            Debug.Log("Player" + doppleganger.transform.GetChild(1).transform.childCount);
+            //if target camera does not have item AND  doppleganger camera  has item
+            if (target.transform.GetChild(1).transform.childCount <= 0 && doppleganger.transform.GetChild(1).transform.childCount > 0)// && target.transform.GetChild(1).transform.childCount <= 0 )
+            {
+                Debug.Log("remove item");
+                Destroy(doppleganger.transform.GetChild(1).transform.GetChild(0).gameObject);
+
+            }
+            //else if target's camera has item AND doppleganger camera does not
+            else if (target.transform.GetChild(1).transform.childCount > 0 && doppleganger.transform.GetChild(1).transform.childCount <= 0)
+            {
+                Debug.Log("add item");
+                Transform tempCam = target.transform.GetChild(1);
+                Transform tempItem = target.transform.GetChild(1).transform.GetChild(0);
+                Vector3 itemDistHold = tempCam.position - tempItem.position;
+                Transform child = Instantiate(tempItem, doppleganger.transform.position + (doppleganger.transform.forward * itemDistHold.magnitude), doppleganger.transform.rotation);
+                child.parent = doppleganger.transform.GetChild(1);
+
+            }
             //distFromCamera.x = -distFromCamera.x;
             //doppleganger.transform.position = mirror2.transform.localPosition + (distFromCamera);// + mirror2.transform.TransformDirection(Vector3.up) ;
         }
@@ -68,4 +106,3 @@ public class mirror : MonoBehaviour
     }
 
 }
-
