@@ -10,6 +10,8 @@ public class CharMove : MonoBehaviour
     public float playerSpeed = 2.0f;
     public float jumpHeight = 1.0f;
     public float gravityValue = -9.81f;
+    public bool isSeen;
+    public float numReflection;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +23,14 @@ public class CharMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(numReflection > 0)
+        {
+            isSeen = true;
+        }
+        else
+        {
+            isSeen = false;
+        }
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
         {
