@@ -23,7 +23,6 @@ public class mirror : MonoBehaviour
         // Update is called once per frame
         void Update()
         {
-            bool withinRange = distanceToWall > Mathf.Abs((target.transform.position - transform.position).magnitude);
             Vector3 screenPoint = cam.WorldToViewportPoint(target.transform.position);
             onScreen = screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1 && playerSeen();
             
@@ -118,6 +117,7 @@ public class mirror : MonoBehaviour
         Matrix4x4 m = Matrix4x4.Rotate(rotation);
         return m.MultiplyPoint3x4(coordinates);
     }
+
     bool playerSeen()
     {
 
