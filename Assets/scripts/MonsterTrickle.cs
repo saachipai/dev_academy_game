@@ -4,18 +4,24 @@ using UnityEngine;
 
 public class MonsterTrickle : MonoBehaviour
 {
-    public GameObject player;
     private CharMove playerScript;
+    private Vector3[] dirs;
+    public Vector3 dirUnitVector;
+
+    //Setup
+    public GameObject player;
     public Camera playerCamera;
+    
+    //Properties
     public float startingDist= 10;
     public float movingRate = 1;
     public float killDist = 9;
-    public Vector3 dirUnitVector;
-    private Vector3[] dirs;
+    
     public bool isDopple = false;
     // Start is called before the first frame update
     void Start()
     {
+        //pre write vectors of (0,1,0), (0,-1,0),(1,0,0),(-1,0,0) all orthognal to directional vector 
         dirs = new[] { transform.up, -transform.up, transform.right, -transform.right };
         playerScript = player.GetComponent<CharMove>();
         
@@ -24,39 +30,33 @@ public class MonsterTrickle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //create directional vector, need to find direction that monster must traverse to move reach player 
         dirUnitVector = Vector3.Normalize(player.transform.position - transform.position);
-        transform.LookAt(player.transform);
-        Vector3 monstLoc = getNearestSurface();
-        float dist = Vector3.Magnitude(monstLoc - transform.GetChild(0).transform.position);
-        Debug.Log(dist);
-        transform.GetChild(0).transform.position = Vector3.Lerp(monstLoc, transform.GetChild(0).transform.position, dist * .05f * Time.deltaTime);
-        //transform.GetChild(0).transform.position = monstLoc;
 
-        //Debug.Log(Mathf.Abs((monstLoc - transform.GetChild(0).transform.position).magnitude));
-        //transform.LookAt(player.transform);
+        //rotate this quaternion(monster's) to the coressponding angle facing the player/target
+        transform.LookAt(player.transform);
+
+        //check four orthognal locations of solid surfaces(floor,ceiling,wall right, and wall left), get the position of the closest of the four
+        Vector3 monstLoc = getNearestSurface();
+
+        //get the differece in distance between 
+        float dist = Vector3.Magnitude(monstLoc - transform.GetChild(0).transform.position);
+      
+        //attach monstermesh(child of monster object) to the ground. unsuccessfuly lerped(linear interpalation/smoothed) position
+        transform.GetChild(0).transform.position = Vector3.Lerp(monstLoc, transform.GetChild(0).transform.position, dist * .05f * Time.deltaTime);
+       
+        //if the player is within view AND not within a certin distance
         if ((playerScript.isSeen && (Mathf.Abs((player.transform.position - transform.position).magnitude) >= killDist))|| isDopple)
         {
-
-
-            //Debug.Log(dirUnitVector + "dirUnitVector:dist" + Mathf.Abs((player.transform.position - transform.position).magnitude));
-            // transform.Translate((dirUnitVector * -movingRate * Time.deltaTime));// + transform.right *.5f* Mathf.Sin(Time.deltaTime* movingRate)) );//+ transform.up * .5f * Mathf.Cos(Time.deltaTime * movingRate/20
-            //transform.Translate(0, 0, 1);
-            //Debug.Log("spider Move");
-            // transform.position = player.transform.position + (player.transform.forward * -startingDist) - dirUnitVector;
+            //move the player fowards(z axis) towards the player/target
             transform.Translate(0, 0, movingRate * Time.deltaTime);
 
         }
         else
         {
-            //transform.position = player.transform.position + new Vector3(2,0,2);//Vector3.Scale(dirUnitVector, dirUnitVector);
+            //code for monster capturing player
         }
-        if (Mathf.Abs((player.transform.position - transform.position).magnitude) < killDist ){
-            //Debug.Log("kill");
-            //Debug.Log(Mathf.Abs((player.transform.position - transform.position).magnitude));
-            //transform.position = player.transform.position + (player.transform.forward * -startingDist)- dirUnitVector;
-            //Destroy(this);
-
-        }
+       
     }
     void reset()
     {
@@ -66,23 +66,26 @@ public class MonsterTrickle : MonoBehaviour
 
     Vector3 getNearestSurface()
     {
+        //filter,output position(where to place the monster) preparatinon
         int layerMask = 1 << 9;
-        Vector3 endPos = transform.position;
+        Vector3 endPos = transform.position;// output for monster, default is floating
         float getDist = -1;
+
+        //repeat four times with diffrent directions
         for (int i = 0; i < 4; i++)
         {
-
+            //look up raycast, imagine draing a line from a position in a direction and seing wherer the line stops
             RaycastHit hit;
             Ray distWall = new Ray(transform.position, dirs[i]);
             if (Physics.Raycast(distWall, out hit, Mathf.Infinity, layerMask))
             {
                 
-                 if (getDist == -1)
+                 if (getDist == -1)//first direction is default
                  {
                      getDist = hit.distance;
                      endPos = hit.point;
                  }
-                 else if(getDist > hit.distance)
+                 else if(getDist > hit.distance) //if a closer surface is found choose the closer of the two as the new surface to place the monster
                  {
                      endPos = hit.point;
                  }
@@ -92,8 +95,8 @@ public class MonsterTrickle : MonoBehaviour
             //endPos = hit.point;
         }
            
-            //Debug.Log(endPos);
+            
         
-        return endPos;
+        return endPos; // output the closest surface to place the monster
     }
 }
