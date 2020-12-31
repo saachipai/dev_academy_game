@@ -17,18 +17,7 @@ public class mirror : MonoBehaviour
     void Start()
     {
         targetScript = target.GetComponent<CharMove>();
-        RaycastHit hit;
-        Ray distWall = new Ray(cam.WorldToViewportPoint(target.transform.position), cam.transform.TransformDirection(Vector3.forward));
-        if (Physics.Raycast(distWall, out hit))
-        {
-            distanceToWall = hit.distance;
-            Debug.Log(distanceToWall);
-        }
-        else
-        {
-            distanceToWall = 50;
-        }
-        Debug.Log(distanceToWall);
+        
     }
 
         // Update is called once per frame
@@ -36,7 +25,7 @@ public class mirror : MonoBehaviour
         {
             bool withinRange = distanceToWall > Mathf.Abs((target.transform.position - transform.position).magnitude);
             Vector3 screenPoint = cam.WorldToViewportPoint(target.transform.position);
-            onScreen = screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1 && withinRange;
+            onScreen = screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1 && playerSeen();
             
             if (onScreen)
             {
@@ -54,7 +43,7 @@ public class mirror : MonoBehaviour
                     oldOnScreen = onScreen;
                     doppleganger.name = "doppleGanger";
                     doppleganger.transform.GetChild(2).GetComponent<MonsterTrickle>().player = doppleganger;
-                    //doppleganger.transform.GetChild(2).GetComponent<MonsterTrickle>().player = doppleganger;
+                    doppleganger.transform.GetChild(2).GetComponent<MonsterTrickle>().isDopple = true;
 
             }
             //Debug.Log(mirror2.rotation.eulerAngles);
@@ -129,5 +118,28 @@ public class mirror : MonoBehaviour
         Matrix4x4 m = Matrix4x4.Rotate(rotation);
         return m.MultiplyPoint3x4(coordinates);
     }
+    bool playerSeen()
+    {
 
+        Vector3 dirVect = -Vector3.Normalize(transform.position - target.transform.position);
+        Debug.DrawRay(transform.position, dirVect * 100, Color.yellow);
+
+        RaycastHit hit;
+        Ray distWall = new Ray(transform.position, dirVect);
+        if (Physics.Raycast(distWall, out hit))
+        {
+            distanceToWall = hit.distance;
+            Debug.DrawRay(cam.WorldToViewportPoint(target.transform.position), dirVect * hit.distance, Color.yellow);
+            Debug.Log(hit.collider.gameObject.name + distanceToWall);
+            if (hit.collider.gameObject == target)
+            {
+                return true;
+            }
+        }
+        Debug.Log("none");
+        return false;
+        
+       // Debug.Log(this.name + distanceToWall);
+        
+    }
 }

@@ -45,6 +45,9 @@ public class CharMove : MonoBehaviour
         Vector3 move = x * Vector3.right + z * Vector3.forward + playerVelocity;
         move = transform.TransformDirection(move);
         //Debug.Log(move);
+
+        
+
         controller.Move(move * Time.deltaTime * playerSpeed);
 
 

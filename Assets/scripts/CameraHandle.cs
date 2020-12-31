@@ -107,7 +107,7 @@ public class CameraHandle : MonoBehaviour
             }
             if (isRotate)
             {
-                item.transform.Rotate(0, rotateSpeed, 0);
+                item.transform.Rotate(0, rotateSpeed* Time.deltaTime, 0);
             }
         }
     }

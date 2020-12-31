@@ -12,6 +12,7 @@ public class MonsterTrickle : MonoBehaviour
     public float killDist = 9;
     public Vector3 dirUnitVector;
     private Vector3[] dirs;
+    public bool isDopple = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +24,7 @@ public class MonsterTrickle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        dirUnitVector = Vector3.Normalize(player.transform.position - transform.position);
         transform.LookAt(player.transform);
         Vector3 monstLoc = getNearestSurface();
         float dist = Vector3.Magnitude(monstLoc - transform.GetChild(0).transform.position);
@@ -31,26 +32,28 @@ public class MonsterTrickle : MonoBehaviour
         transform.GetChild(0).transform.position = Vector3.Lerp(monstLoc, transform.GetChild(0).transform.position, dist * .05f * Time.deltaTime);
         //transform.GetChild(0).transform.position = monstLoc;
 
-        Debug.Log(Mathf.Abs((monstLoc - transform.GetChild(0).transform.position).magnitude));
+        //Debug.Log(Mathf.Abs((monstLoc - transform.GetChild(0).transform.position).magnitude));
         //transform.LookAt(player.transform);
-        if (playerScript.isSeen && (Mathf.Abs((player.transform.position - transform.position).magnitude) >= killDist))
+        if ((playerScript.isSeen && (Mathf.Abs((player.transform.position - transform.position).magnitude) >= killDist))|| isDopple)
         {
 
-            
+
             //Debug.Log(dirUnitVector + "dirUnitVector:dist" + Mathf.Abs((player.transform.position - transform.position).magnitude));
-            transform.Translate((transform.forward * movingRate * Time.deltaTime + transform.right * Mathf.Sin(Time.deltaTime* movingRate)) );
+            // transform.Translate((dirUnitVector * -movingRate * Time.deltaTime));// + transform.right *.5f* Mathf.Sin(Time.deltaTime* movingRate)) );//+ transform.up * .5f * Mathf.Cos(Time.deltaTime * movingRate/20
             //transform.Translate(0, 0, 1);
             //Debug.Log("spider Move");
+            // transform.position = player.transform.position + (player.transform.forward * -startingDist) - dirUnitVector;
+            transform.Translate(0, 0, movingRate * Time.deltaTime);
 
         }
         else
         {
-            transform.position = player.transform.position + new Vector3(2,0,2);//Vector3.Scale(dirUnitVector, dirUnitVector);
+            //transform.position = player.transform.position + new Vector3(2,0,2);//Vector3.Scale(dirUnitVector, dirUnitVector);
         }
         if (Mathf.Abs((player.transform.position - transform.position).magnitude) < killDist ){
             //Debug.Log("kill");
             //Debug.Log(Mathf.Abs((player.transform.position - transform.position).magnitude));
-            transform.position = player.transform.position + (player.transform.forward * -startingDist)- dirUnitVector;
+            //transform.position = player.transform.position + (player.transform.forward * -startingDist)- dirUnitVector;
             //Destroy(this);
 
         }
@@ -89,7 +92,7 @@ public class MonsterTrickle : MonoBehaviour
             //endPos = hit.point;
         }
            
-            Debug.Log(endPos);
+            //Debug.Log(endPos);
         
         return endPos;
     }
