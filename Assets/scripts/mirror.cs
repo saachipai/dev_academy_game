@@ -34,6 +34,7 @@ public class mirror : MonoBehaviour
                 if (onScreen != oldOnScreen)
                 {
                     targetScript.numReflection++;
+                    
                     doppleganger = Instantiate(target, mirror2.localPosition + distFromCamera, transform.rotation);
                     Destroy(doppleganger.GetComponent<CharMove>());
                     Destroy(doppleganger.GetComponent<CharacterController>());

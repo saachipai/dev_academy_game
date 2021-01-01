@@ -18,13 +18,17 @@ public class MonsterTrickle : MonoBehaviour
     public float killDist = 9;
     
     public bool isDopple = false;
+
+    private Vector3 startPos;
     // Start is called before the first frame update
     void Start()
     {
         //pre write vectors of (0,1,0), (0,-1,0),(1,0,0),(-1,0,0) all orthognal to directional vector 
         dirs = new[] { transform.up, -transform.up, transform.right, -transform.right };
         playerScript = player.GetComponent<CharMove>();
-        
+        startPos = transform.localPosition;
+
+
     }
 
     // Update is called once per frame
@@ -52,15 +56,17 @@ public class MonsterTrickle : MonoBehaviour
             transform.Translate(0, 0, movingRate * Time.deltaTime);
 
         }
-        else
+        else if((Mathf.Abs((player.transform.position - transform.position).magnitude) < killDist))
         {
             //code for monster capturing player
+            player.transform.position = playerScript.lastMirror;
+            reset();
         }
        
     }
     void reset()
     {
-        transform.position =  -playerCamera.transform.TransformDirection(Vector3.forward)* startingDist;
+        transform.localPosition = startPos;
         //transform.position = -player.transform.forward * startingDist;
     }
 
