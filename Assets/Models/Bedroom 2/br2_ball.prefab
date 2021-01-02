@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5721846211053687900}
   - component: {fileID: 1641167624578391375}
   - component: {fileID: 9166272541486852807}
-  - component: {fileID: 99960813995324931}
   m_Layer: 0
   m_Name: br2_ball
   m_TagString: Untagged
@@ -27,13 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9166272541486852806}
-  m_LocalRotation: {x: -0.31630743, y: 0.0529412, z: -0.0034686024, w: 0.94717205}
+  m_LocalRotation: {x: -0.3163074, y: 0.052942574, z: -0.0034660245, w: 0.947172}
   m_LocalPosition: {x: -0.23949558, y: 0.01883589, z: -0.035780028}
   m_LocalScale: {x: 0.18687008, y: 0.18687008, z: 0.18687008}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -36.786, y: 7.352, z: -2.867}
 --- !u!33 &5721846211053687900
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -61,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3b8fe3461ff320f4e959814b793b9648, type: 2}
+  - {fileID: 2100000, guid: 3074fb6b3d3e4a54dbbec9c4547f4f9e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,19 +83,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!135 &9166272541486852807
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9166272541486852806}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.06088908
-  m_Center: {x: 0, y: -0.00000011920929, z: 0.00000023841858}
---- !u!135 &99960813995324931
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
