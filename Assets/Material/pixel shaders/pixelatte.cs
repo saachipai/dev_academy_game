@@ -21,6 +21,6 @@ public class pixelatte : MonoBehaviour
     void OnRenderImage(RenderTexture src, RenderTexture dst)
     {
         Graphics.Blit(src, dst, EffectMaterial);
-        Debug.Log("onrenderimageisworking");
+        //Debug.Log("onrenderimageisworking");
     }
 }
