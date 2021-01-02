@@ -2040,6 +2040,7 @@ MonoBehaviour:
   startingDist: 20
   movingRate: 0.5
   killDist: 1
+  masterPlayer: {fileID: 192027751}
   isDopple: 0
 --- !u!54 &1145565807
 Rigidbody:
@@ -3842,6 +3843,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1196951277}
     - target: {fileID: 148575261036378620, guid: e0a65f292ddc82b4291635ba5db5f76c, type: 3}
+      propertyPath: monstScript
+      value: 
+      objectReference: {fileID: 1145565806}
+    - target: {fileID: 148575261036378620, guid: e0a65f292ddc82b4291635ba5db5f76c, type: 3}
+      propertyPath: playerSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 148575261036378620, guid: e0a65f292ddc82b4291635ba5db5f76c, type: 3}
       propertyPath: thisMirror.x
       value: -19.98
       objectReference: {fileID: 0}
@@ -3900,6 +3909,14 @@ PrefabInstance:
     - target: {fileID: 148575261226833639, guid: e0a65f292ddc82b4291635ba5db5f76c, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459342889597903191, guid: e0a65f292ddc82b4291635ba5db5f76c, type: 3}
+      propertyPath: glow
+      value: 
+      objectReference: {fileID: 4800000, guid: e0245c79e8a05f9408e7961b648f5eab, type: 3}
+    - target: {fileID: 4459342889597903191, guid: e0a65f292ddc82b4291635ba5db5f76c, type: 3}
+      propertyPath: rotateSpeed
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5621099455559916399, guid: e0a65f292ddc82b4291635ba5db5f76c, type: 3}
       propertyPath: distHold

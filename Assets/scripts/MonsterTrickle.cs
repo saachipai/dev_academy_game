@@ -11,12 +11,13 @@ public class MonsterTrickle : MonoBehaviour
     //Setup
     public GameObject player;
     public Camera playerCamera;
+
     
     //Properties
     public float startingDist= 10;
     public float movingRate = 1;
     public float killDist = 9;
-    
+    public GameObject masterPlayer;
     public bool isDopple = false;
 
     private Vector3 startPos;
@@ -27,6 +28,7 @@ public class MonsterTrickle : MonoBehaviour
         dirs = new[] { transform.up, -transform.up, transform.right, -transform.right };
         playerScript = player.GetComponent<CharMove>();
         startPos = transform.localPosition;
+        //masterPlayer = Find("/player");
 
 
     }
@@ -60,11 +62,12 @@ public class MonsterTrickle : MonoBehaviour
         {
             //code for monster capturing player
             player.transform.position = playerScript.lastMirror;
+            masterPlayer.GetComponent<CharMove>().ResetThismonster();
             reset();
         }
        
     }
-    void reset()
+    public void reset()
     {
         transform.localPosition = startPos;
         //transform.position = -player.transform.forward * startingDist;

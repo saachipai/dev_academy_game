@@ -11,7 +11,7 @@ public class CharMove : MonoBehaviour
 
     //Set Up
     public CharacterController controller;
-   
+    public MonsterTrickle monstScript;
     //Properties
     public float playerSpeed = 2.0f;
     public float jumpHeight = 1.0f;
@@ -74,8 +74,10 @@ public class CharMove : MonoBehaviour
 
 
 
+    }
 
-
-
+    public void ResetThismonster()
+    {
+       monstScript.reset();
     }
 }
