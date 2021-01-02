@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 354005845951959511}
   - component: {fileID: 279435017467229574}
   - component: {fileID: 2469639214079315914}
-  - component: {fileID: 468752837932953754}
   - component: {fileID: 3613140950419152881}
+  - component: {fileID: 468752837932953754}
   m_Layer: 0
   m_Name: br2_rabbit
   m_TagString: Untagged
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b3676489c81859244b64c7bab36c01f9, type: 2}
+  - {fileID: 2100000, guid: aa3c206f396462e40b4475cf1d804abb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,19 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &468752837932953754
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2635875493440948261}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.012448428, y: 0.0265362, z: 0.011877872}
-  m_Center: {x: -0.00029514643, y: 0.00021249385, z: 0.00017854874}
 --- !u!54 &3613140950419152881
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -112,3 +99,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &468752837932953754
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2635875493440948261}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.012448428, y: 0.0265362, z: 0.011877872}
+  m_Center: {x: -0.00029514643, y: 0.00021249385, z: 0.00017854874}

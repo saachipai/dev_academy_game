@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 3098654003721484686}
   - component: {fileID: 6532629138374721634}
   - component: {fileID: 754403093808497439}
+  - component: {fileID: 6681617653575608684}
   m_Layer: 0
   m_Name: pasted__computerstand1
   m_TagString: Untagged
@@ -124,7 +125,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: efb30450ed3b4e649bc6a05c1dd7c92e, type: 3}
+  - {fileID: 2100000, guid: e2ff3c4ecef1bd6498017dacfbf3056c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -157,8 +158,21 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.0025913802, y: 0.020486394, z: 0.03453325}
-  m_Center: {x: -0.000036964575, y: 0.014385052, z: -0.0003652472}
+  m_Size: {x: 0.00873162, y: 0.007867227, z: 0.012615949}
+  m_Center: {x: -0.0004650014, y: -0.0000000013520449, z: -0.0000000022543154}
+--- !u!65 &6681617653575608684
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5596537181958755120}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.003325998, y: 0.022320457, z: 0.03590893}
+  m_Center: {x: -0.00025393773, y: 0.01427249, z: -0.000031034408}
 --- !u!1 &6096643678690684964
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,7 +232,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0423705c9c5240b4281fe78e6bf92f97, type: 2}
+  - {fileID: 2100000, guid: e2ff3c4ecef1bd6498017dacfbf3056c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
