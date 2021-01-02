@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: 9083301150294640792}
   - component: {fileID: 4236573511573603489}
   - component: {fileID: 6557359835619238653}
-  - component: {fileID: 5851377448949138747}
   m_Layer: 0
   m_Name: lr_small_lamp_shade
   m_TagString: Untagged
@@ -92,7 +91,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: efb30450ed3b4e649bc6a05c1dd7c92e, type: 3}
+  - {fileID: 2100000, guid: 432c619001e4cff498089ab933e8f59f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -114,20 +113,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &5851377448949138747
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4797729595557486629}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.011848704
-  m_Height: 0.049024917
-  m_Direction: 1
-  m_Center: {x: -0.1231145, y: 0.07343501, z: -0.4194343}
 --- !u!1 &5855683602579441046
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,6 +124,7 @@ GameObject:
   - component: {fileID: 2595580990615981347}
   - component: {fileID: 745722291099451410}
   - component: {fileID: 4907869590652512370}
+  - component: {fileID: 76843311092416003}
   m_Layer: 0
   m_Name: lr_small_lamp
   m_TagString: Untagged
@@ -187,7 +173,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: efb30450ed3b4e649bc6a05c1dd7c92e, type: 3}
+  - {fileID: 2100000, guid: 3d7af5a648af1c041bff76ad30f6d324, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -209,3 +195,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &76843311092416003
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5855683602579441046}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.022096114, y: 0.040563826, z: 0.02077156}
+  m_Center: {x: -0.000000014901161, y: 0.007904822, z: 0}

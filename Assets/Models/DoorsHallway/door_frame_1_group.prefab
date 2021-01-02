@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: 2457945744325118798}
   - component: {fileID: 7801306559928812754}
   - component: {fileID: 8626759458941162693}
-  - component: {fileID: 3127707609872209567}
   m_Layer: 0
   m_Name: door_frame
   m_TagString: Untagged
@@ -92,7 +91,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0423705c9c5240b4281fe78e6bf92f97, type: 2}
+  - {fileID: 2100000, guid: e2ff3c4ecef1bd6498017dacfbf3056c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -114,19 +113,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3127707609872209567
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2191258052024173485}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.048729777, y: 0.06932128, z: 0.008897632}
-  m_Center: {x: -0.19751203, y: 0.034660645, z: -0.15430681}
 --- !u!1 &2957046813915398063
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,7 +172,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e2ff3c4ecef1bd6498017dacfbf3056c, type: 2}
+  - {fileID: 2100000, guid: aa3c206f396462e40b4475cf1d804abb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

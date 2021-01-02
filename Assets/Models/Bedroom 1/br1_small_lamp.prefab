@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3d7af5a648af1c041bff76ad30f6d324, type: 2}
+  - {fileID: 2100000, guid: cf0fa134b2b1e074a8f1557eff4ce1be, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 6095666984510335360}
   - component: {fileID: 7239783203602225652}
   - component: {fileID: 1890551675776721467}
+  - component: {fileID: 4464369388572548503}
   - component: {fileID: 1184622452593293953}
   m_Layer: 0
   m_Name: br1_small_lamp_shade
@@ -141,7 +142,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: aa3c206f396462e40b4475cf1d804abb, type: 2}
+  - {fileID: 2100000, guid: 29ccc14ffda3f5b40bd1582e89e8df89, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -163,6 +164,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &4464369388572548503
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5248674875925099310}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.011823928
+  m_Height: 0.041582372
+  m_Direction: 1
+  m_Center: {x: 0.1775684, y: 0.050702326, z: -0.03091026}
 --- !u!65 &1184622452593293953
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -174,8 +189,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.023647819, y: 0.035067387, z: 0.023647865}
-  m_Center: {x: 0.1775684, y: 0.051243767, z: -0.03091027}
+  m_Size: {x: 0.023647819, y: 0.032923248, z: 0.023647865}
+  m_Center: {x: 0.1775684, y: 0.052315895, z: -0.03091027}
 --- !u!1 &8069683324475942627
 GameObject:
   m_ObjectHideFlags: 0
