@@ -143,9 +143,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 148575261036378621}
-  playerSpeed: 2
+  playerSpeed: 1
   jumpHeight: 1
   gravityValue: -9.81
+  isSeen: 0
+  numReflection: 0
 --- !u!143 &148575261036378621
 CharacterController:
   m_ObjectHideFlags: 0
@@ -260,11 +262,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd60e4adf97cfb24a80bb16791f80054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitiveity: 100
-  body: {fileID: 148575261036378623}
-  distHold: 1
-  item: {fileID: 0}
-  rotateSpeed: 1
-  glow: {fileID: 0}
   normalShader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  body: {fileID: 148575261036378623}
+  item: {fileID: 0}
   tempItem: {fileID: 0}
+  glow: {fileID: 0}
+  rotateSpeed: 1
+  sensitiveity: 100
+  distHold: 1

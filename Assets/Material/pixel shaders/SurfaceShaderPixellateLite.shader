@@ -8,7 +8,7 @@
 			_Metallic("Metallic", Range(0,1)) = 0.0
 			_Columns("Pixel Columns", Float) = 64
 			_Rows("Pixel Rows", Float) = 64
-			_BrightVal("Brightness Value",Float) = 1.5
+			_BrightVal("Brightness Value",Float) = 10
 		}
 			SubShader
 			{

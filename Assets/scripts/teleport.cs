@@ -8,9 +8,13 @@ public class teleport : MonoBehaviour
     public GameObject player;
     public Vector3 offsetSpawn = new Vector3(1, 0, 0);
     public CharacterController charController;
-    void Setup()
+    public CharMove playerScript;
+
+    void Start()
     {
-        //charController = player.GetComponent<CharacterController>();
+        charController = player.GetComponent<CharacterController>();
+        playerScript = player.GetComponent<CharMove>();
+        Debug.Log("howdy");
         //charController.enabled = false;
     }
 
@@ -27,6 +31,10 @@ public class teleport : MonoBehaviour
             charController.enabled = false;
             player.transform.position = next.position + Vector3.Scale(next.up, offsetSpawn);
             charController.enabled = true;
+
+            playerScript.lastMirror = playerScript.thisMirror;
+            playerScript.thisMirror = player.transform.position;
+            
             //Destroy(col.gameObject);
             //player.transform.Translate(0, 1000, 0);
             //Destroy(player);

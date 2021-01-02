@@ -21,7 +21,7 @@ public class CameraHandle : MonoBehaviour
     public float sensitiveity = 100;
     public float distHold;
     private float xRot = 0;
-    private bool isRotate;
+    private bool isRotate = false;
 
 
     //
@@ -139,8 +139,9 @@ public class CameraHandle : MonoBehaviour
             {
                 isRotate = !isRotate; // check state of wether to rotate or not(toggle in this line
             }
-            if (isRotate)
+            if (isRotate && item != null)
             {
+                Debug.Log("isRotate" + isRotate + "item"+item.name);
                 item.transform.Rotate(0, rotateSpeed* Time.deltaTime, 0);
             }
 

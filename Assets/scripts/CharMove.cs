@@ -7,16 +7,22 @@ public class CharMove : MonoBehaviour
     //Current charachter's velocity, used for gravity
     private Vector3 playerVelocity;
     private bool groundedPlayer;
+    
 
     //Set Up
     public CharacterController controller;
-   
+    public MonsterTrickle monstScript;
     //Properties
     public float playerSpeed = 2.0f;
     public float jumpHeight = 1.0f;
     public float gravityValue = -9.81f;
     public bool isSeen;
     public float numReflection; //external mirror count
+
+    public Vector3 thisMirror = new Vector3(1, 1, 1); // start mirror
+
+    public Vector3 lastMirror = new Vector3(1, 1, 1);
+
 
     // Start is called before the first frame update
     void Start()
@@ -68,8 +74,10 @@ public class CharMove : MonoBehaviour
 
 
 
+    }
 
-
-
+    public void ResetThismonster()
+    {
+       monstScript.reset();
     }
 }
